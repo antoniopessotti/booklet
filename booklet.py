@@ -67,6 +67,11 @@ def build_doc( in_file, out_file ):
     
     outpage = out.addBlankPage( *size )
 
+    maxPage = src.numPages
+    if maxPage % 4:
+        maxPage = maxPage + 4 - maxPage % 4
+    maxPage = maxPage - 1
+
     for i, v in enumerate( iter_pages( src.numPages ) ):
         p, r, x, y = v
         if p < src.numPages:
@@ -77,7 +82,7 @@ def build_doc( in_file, out_file ):
 
             outpage.mergeTransformedPage( srcpage, merge_matrix( tm ) )
 
-        if i < src.numPages and i % 2:
+        if i < maxPage and i % 2:
             outpage = out.addBlankPage( *size )
 
     out.write( out_file )
