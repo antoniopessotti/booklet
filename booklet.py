@@ -1,4 +1,4 @@
-#!/bin/env python2
+#!/usr/bin/python
 # booklet -p 0-99 -s 5
 # -p    Pages (default all)
 # -s    Sheets per "page group" (find correct term) (default auto = as many as is required to fit all pages)
